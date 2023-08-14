@@ -1,7 +1,8 @@
 'use client'
 import { useReducer } from 'react'
 import { Row } from './Row'
-import { deepCloneBoard } from '../gameUtils'
+import { deepCloneBoard, checkForWin, generateNewBoard } from '../gameUtils'
+
 
 
 import gameStyles from '/app/Home.module.css'
@@ -23,28 +24,27 @@ const initialGameState = {
     [null, null, null, null, null, null, null],
   ],
   gameOver: false,
-  message: 'tes test',
+  message: ``,
 }
 
 
 export const Connect4 = () => {
   const gameReducer = (state, action) => {
-//1
   switch (action.type) {
-//2
+
     case 'newGame':
       return {
         ...initialGameState,
         board: action.board,
       }
-//3
+
     case 'togglePlayer':
       return {
         ...state,
         currentPlayer: action.nextPlayer,
         board: action.board,
       }
-//4
+
     case 'endGame':
       return {
         ...state,
@@ -52,13 +52,13 @@ export const Connect4 = () => {
         message: action.message,
         board: action.board,
       }
-//5
+
     case 'updateMessage':
       return {
         ...state,
         message: action.message,
       }
-//6
+
     default:
       throw Error(`Action "${action.type}" is not a valid action.`)
   }
@@ -115,7 +115,9 @@ for (let r = 5; r >= 0; r--) {
 
   return (
     <>
-    <button> New game</button>
+    <button onClick={() => {
+  dispatchGameState({ type: 'newGame', board: generateNewBoard()})
+ }}> New game</button>
 
 
       <table>
