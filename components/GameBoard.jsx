@@ -15,6 +15,7 @@ export default function GameBoard() {
 
   const [gameState, setGameState] = useState(initialBoard);
   const [currentPlayer, setCurrentPlayer] = useState(1);
+  const [pointerColor, setPointerColor] = useState("redPointer");
 
   const addToken = (columnI) => {
     const column = gameState[columnI];
@@ -25,14 +26,23 @@ export default function GameBoard() {
         setCurrentPlayer(currentPlayer === 1 ? 2 : 1))
       : null;
 
-    // console.log(gameState);
+    currentPlayer === 2
+      ? setPointerColor("redPointer")
+      : setPointerColor("yellowPointer");
   };
 
   return (
     <main className={Styles.main}>
       <div className={Styles.board}>
         {gameState.map((col, i) => {
-          return <GameColumn col={col} key={i} onClick={() => addToken(i)} />;
+          return (
+            <GameColumn
+              col={col}
+              key={i}
+              onClick={() => addToken(i)}
+              pointerColor={pointerColor}
+            />
+          );
         })}
       </div>
     </main>

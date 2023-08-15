@@ -1,11 +1,13 @@
+$red-color: #fb2a2a;
+$yellow-color: #e8ce0a;
+
 .main {
   background-color: #f4d7b9;
-  background: linear-gradient(180deg, #f4d7b9 80%, #d9bb9b 60%);
+  background: linear-gradient(180deg, #fdeddb 80%, #d9bb9b 60%);
   padding: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .board {
@@ -15,9 +17,9 @@
   padding-bottom: 40px;
   border-radius: 20px;
   border: solid 2px black;
-  box-shadow: black 0px 5px 0px 1px ;
-
+  box-shadow: black 0px 5px 0px 1px;
 }
+
 .gameCell {
   height: 60px;
   width: 60px;
@@ -33,6 +35,28 @@
   margin: 10px;
   display: flex;
   flex-direction: column-reverse;
+  position: relative;
+
+  &:hover .redPointer span {
+    border-top-color: $red-color;
+  }
+  &:hover .yellowPointer span {
+    border-top-color: $yellow-color;
+  }
+}
+
+.pointer span {
+  display: block;
+  background-color: none;
+  position: absolute;
+  top: -80px;
+  margin: 10px;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 40px solid transparent;
+  box-shadow: black -1px 3px 0px 1px inset;
 }
 
 .redCircle,
@@ -46,11 +70,9 @@
 }
 
 .redCircle {
-  background-color: #fb2a2a;
+  background-color: $red-color;
 }
 
 .yellowCircle {
-  background-color: #eae136;
-
-
+  background-color: $yellow-color;
 }

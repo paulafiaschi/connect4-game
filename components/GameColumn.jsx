@@ -1,24 +1,34 @@
+import { useState } from "react";
 import Styles from "../app/Home.module.scss";
 
-export default function GameColumn({ col, i, onClick }) {
+export default function GameColumn({ col, i, onClick, pointerColor }) {
   return (
     <div className={Styles.column}>
       {col.map((cell, i) => {
-        let color;
+        let tokenColor;
+
         cell === 1
-          ? (color = "redCircle")
+          ? (tokenColor = "redCircle")
           : cell === 2
-          ? (color = "yellowCircle")
+          ? (tokenColor = "yellowCircle")
           : null;
 
         return (
-          <span
-            className={`${Styles.gameCell} ${Styles[color]}`}
-            key={`cell-${i}`}
-            onClick={onClick}
-            value={cell}></span>
+          <>
+            <span
+              className={`${Styles.gameCell} ${Styles[tokenColor]}`}
+              key={`cell-${i}`}
+              onClick={onClick}
+              value={cell}></span>
+          </>
         );
       })}
+
+      <div
+        className={`${Styles.pointer} ${Styles[pointerColor]}`}
+        key={`pointer-${i}`}>
+        <span>&nbsp;</span>
+      </div>
     </div>
   );
 }
