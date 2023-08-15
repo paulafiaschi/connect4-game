@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Styles from "../app/Home.module.css";
+import Styles from "../app/Home.module.scss";
 import GameColumn from "./GameColumn";
 
 export default function GameBoard() {

@@ -1,16 +1,16 @@
-import Styles from "../app/Home.module.css";
+import Styles from "../app/Home.module.scss";
 
 export default function GameColumn({ col, i, onClick }) {
   return (
     <div className={Styles.column}>
       {col.map((cell, i) => {
-        let color = "whiteCircle";
+        let color;
+        cell === 1
+          ? (color = "redCircle")
+          : cell === 2
+          ? (color = "yellowCircle")
+          : null;
 
-        if (cell === 1) {
-          color = "redCircle";
-        } else if (cell === 2) {
-          color = "yellowCircle";
-        }
         return (
           <span
             className={`${Styles.gameCell} ${Styles[color]}`}

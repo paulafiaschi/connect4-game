@@ -1,24 +1,33 @@
 .main {
   background-color: #f4d7b9;
-  padding: 50px;
+  background: linear-gradient(180deg, #f4d7b9 80%, #d9bb9b 60%);
+  padding: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .board {
   background-color: #1990ff;
   display: flex;
   width: fit-content;
+  padding-bottom: 40px;
+  border-radius: 20px;
+  border: solid 2px black;
+  box-shadow: black 0px 5px 0px 1px ;
+
 }
 .gameCell {
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
   cursor: pointer;
   display: flex;
   background-color: #f4d7b9;
   border-radius: 100px;
   margin: 10px;
+  border: solid 1px black;
+  box-shadow: black -1px 3px 0px 1px inset;
 }
 .column {
   margin: 10px;
@@ -26,41 +35,22 @@
   flex-direction: column-reverse;
 }
 
-.whiteCircle,
 .redCircle,
 .yellowCircle {
   height: 60px;
   width: 60px;
   border-radius: 100px;
-}
-
-.whiteCircle {
-  background-color: #fff;
+  transition: background-color 0.5s;
+  transition: box-shadow 0.1s;
+  box-shadow: black -1px 3px 0px 1px inset;
 }
 
 .redCircle {
   background-color: #fb2a2a;
-  box-shadow: #9c0303 -1px 3px 0px 1px inset;
-  transition: background-color 0.5s;
-  transition: box-shadow 0.1s;
 }
 
 .yellowCircle {
   background-color: #eae136;
-  box-shadow: #c4bc1b -1px 3px 0px 1px inset;
-  transition: box-shadow 0.1s;
-  transition: background-color 0.5s;
-}
 
-td.cel {
-  width: 25px;
-  height: 25px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 50%;
-}
 
-tbody.tbody {
-  background-color: #1990ff;
-  padding: 20px;
 }
