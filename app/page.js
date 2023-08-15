@@ -1,5 +1,7 @@
-import { Connect4 } from "../components/Connect4";
+"use client";
+
+import GameBoard from "../components/GameBoard";
 
 export default function Home() {
-  return <Connect4 />;
+  return <GameBoard />;
 }

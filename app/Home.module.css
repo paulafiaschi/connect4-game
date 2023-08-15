@@ -1,8 +1,27 @@
+.main {
+  background-color: #f4d7b9;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  background-color: #1990ff;
+  display: flex;
+  width: fit-content;
+}
 .gameCell {
   height: 70px;
   width: 70px;
-  background-color: #1990ff;
   cursor: pointer;
+  display: flex;
+  background-color: #f4d7b9;
+  border-radius: 100px;
+  margin: 10px;
+}
+.column {
+  margin: 10px;
 }
 
 .whiteCircle,
