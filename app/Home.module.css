@@ -22,6 +22,8 @@
 }
 .column {
   margin: 10px;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .whiteCircle,
@@ -37,12 +39,16 @@
 }
 
 .redCircle {
-  background-color: rgb(251, 42, 42);
+  background-color: #fb2a2a;
+  box-shadow: #9c0303 -1px 3px 0px 1px inset;
   transition: background-color 0.5s;
+  transition: box-shadow 0.1s;
 }
 
 .yellowCircle {
-  background-color: rgb(243, 239, 20);
+  background-color: #eae136;
+  box-shadow: #c4bc1b -1px 3px 0px 1px inset;
+  transition: box-shadow 0.1s;
   transition: background-color 0.5s;
 }
 
