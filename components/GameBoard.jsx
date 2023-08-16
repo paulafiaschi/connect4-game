@@ -37,7 +37,7 @@ export default function GameBoard() {
       }
     }
 
-    // Check Vertical
+    // Check Horizontal
     for (let c = 0; c < 4; c++) {
       for (let r = 0; r < 6; r++) {
         if (
@@ -52,8 +52,8 @@ export default function GameBoard() {
     }
 
     // Check Diagonally Right
-    for (let c = 0; c < 7; c++) {
-      for (let r = 0; r < 6; r++) {
+    for (let c = 0; c < 5; c++) {
+      for (let r = 0; r < 3; r++) {
         if (
           gameState[c][r] != null &&
           gameState[c][r] == gameState[c + 1][r + 1] &&
@@ -64,9 +64,10 @@ export default function GameBoard() {
         }
       }
     }
+
     // Check Diagonally Left
-    for (let c = 0; c < 7; c++) {
-      for (let r = 0; r < 6; r++) {
+    for (let c = 3; c < 7; c++) {
+      for (let r = 0; r < 3; r++) {
         if (
           gameState[c][r] != null &&
           gameState[c][r] == gameState[c - 1][r + 1] &&
@@ -92,7 +93,7 @@ export default function GameBoard() {
           : setPointerColor("redPointer"))
       : null;
 
-    // Check for win
+    // Check for win and restart game
     if (checkWin()) {
       setWinner(currentPlayer);
       setGameState(initialBoard);
@@ -102,9 +103,6 @@ export default function GameBoard() {
     }
   };
 
-  //   if (winner) {
-  //     return <div>Winner is {winner}</div>;
-  //   }
   return (
     <>
       <main className={Styles.main}>
@@ -135,8 +133,7 @@ export default function GameBoard() {
         <div className={`${Styles.turn} ${Styles[pointerColor]}`}>
           Player {currentPlayer}'s playing
         </div>
-        {openRules === true && <Rules setOpenRules={setOpenRules} />}
-        {/* <WinnerOverlay winner={winner} setOpenWinner={setOpenWinner} /> */}
+        {openRules && <Rules setOpenRules={setOpenRules} />}
         {openWinner && (
           <WinnerOverlay setOpenWinner={setOpenWinner} winner={winner} />
         )}

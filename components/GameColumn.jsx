@@ -19,7 +19,9 @@ export default function GameColumn({ col, idx, onClick, pointerColor }) {
               className={`${Styles.gameCell} ${Styles[tokenColor]}`}
               key={`cell-${idx}-${i}`}
               onClick={onClick}
-              value={cell}></span>
+              value={cell}>
+              {/* col: {idx}, row: {i} */}
+            </span>
           </>
         );
       })}
