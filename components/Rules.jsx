@@ -1,10 +1,12 @@
 import Styles from "../app/Home.module.scss";
 
-export default function Rules({ gameState, winner }) {
+export default function Rules({ setOpenRules }) {
   return (
     <div className={Styles.rulesOverlay}>
       <div className={Styles.rules}>
-        <div onClick={() => setOpenRules(false)}>x</div>
+        <div className={Styles.closeButton} onClick={() => setOpenRules(false)}>
+          x
+        </div>
         <h2>Rules</h2>
         <h3>Objective</h3>
         <p>

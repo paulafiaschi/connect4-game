@@ -20,6 +20,7 @@ export default function GameBoard() {
   const [currentPlayer, setCurrentPlayer] = useState(1);
   const [pointerColor, setPointerColor] = useState("redPointer");
   const [openRules, setOpenRules] = useState(false);
+  const [openWinner, setOpenWinner] = useState(false);
 
   const checkWin = (currentPlayer) => {
     // Check Vertical
@@ -94,6 +95,10 @@ export default function GameBoard() {
     // Check for win
     if (checkWin()) {
       setWinner(currentPlayer);
+      setGameState(initialBoard);
+      setOpenWinner(true);
+      setCurrentPlayer(1);
+      setPointerColor("redPointer");
     }
   };
 
@@ -131,19 +136,9 @@ export default function GameBoard() {
           Player {currentPlayer}'s playing
         </div>
         {openRules === true && <Rules setOpenRules={setOpenRules} />}
-        <WinnerOverlay
-          winner={winner}
-          setWinner={setWinner}
-          setGameState={setGameState}
-          initialBoard={initialBoard}
-        />
-        {winner && (
-          <WinnerOverlay
-            winner={winner}
-            setWinner={setWinner}
-            setGameState={setGameState}
-            initialBoard={initialBoard}
-          />
+        {/* <WinnerOverlay winner={winner} setOpenWinner={setOpenWinner} /> */}
+        {openWinner && (
+          <WinnerOverlay setOpenWinner={setOpenWinner} winner={winner} />
         )}
       </main>
     </>

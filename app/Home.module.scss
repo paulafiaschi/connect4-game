@@ -10,6 +10,7 @@ $yellow-color: #e8ce0a;
   justify-content: center;
   align-items: center;
   position: relative;
+  height: 100vh;
 }
 
 .rulesOverlay,
@@ -36,7 +37,7 @@ $yellow-color: #e8ce0a;
   margin: auto;
   position: relative;
 
-  div {
+  .closeButton {
     position: absolute;
     right: 20px;
     font-size: 20px;
@@ -50,6 +51,7 @@ $yellow-color: #e8ce0a;
   align-items: center;
   text-align: center;
   flex-direction: column;
+  background-color: white;
 
   &.redPointer {
     background-color: $red-color;
@@ -72,6 +74,8 @@ $yellow-color: #e8ce0a;
     border: solid 2px black;
     box-shadow: black 0px 3px 0px 1px;
     cursor: pointer;
+    color: black;
+    min-width: 100px;
   }
 }
 

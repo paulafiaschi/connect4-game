@@ -1,6 +1,9 @@
 import Styles from "../app/Home.module.scss";
 
-export default function WinnerOverlay({ winner, setGameState, initialState }) {
+export default function WinnerOverlay({ winner, setOpenWinner }) {
+  {
+    console.log(winner, setOpenWinner);
+  }
   return (
     <div className={Styles.winnerOverlay}>
       <div
@@ -11,7 +14,9 @@ export default function WinnerOverlay({ winner, setGameState, initialState }) {
           The winner is
           <span>PLAYER {winner}</span>
         </h2>
-        <div className={Styles.newGame}>Restart</div>
+        <div className={Styles.newGame} onClick={() => setOpenWinner(false)}>
+          Restart
+        </div>
       </div>
     </div>
   );
