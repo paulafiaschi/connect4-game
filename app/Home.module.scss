@@ -3,9 +3,10 @@ $yellow-color: #e8ce0a;
 
 .main {
   background-color: #f4d7b9;
-  background: linear-gradient(180deg, #fdeddb 80%, #d9bb9b 60%);
+  background: linear-gradient(180deg, #fdeddb 70%, #d9bb9b 60%);
   padding: 100px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -19,6 +20,25 @@ $yellow-color: #e8ce0a;
   border: solid 2px black;
   box-shadow: black 0px 5px 0px 1px;
 }
+.turn {
+  width: 200px;
+  height: 100px;
+  margin-top: -20px;
+  border: solid 2px black;
+  box-shadow: black 0px 5px 0px 1px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.redPointer {
+    background-color: $red-color;
+    color: white;
+  }
+  &.yellowPointer {
+    background-color: $yellow-color;
+    color: black;
+  }
+}
 
 .gameCell {
   height: 60px;
@@ -28,8 +48,8 @@ $yellow-color: #e8ce0a;
   background-color: #f4d7b9;
   border-radius: 100px;
   margin: 10px;
-  border: solid 1px black;
-  box-shadow: black -1px 3px 0px 1px inset;
+  border: solid 2px black;
+  box-shadow: black -1px 7px 0px 1px inset;
 }
 .column {
   margin: 10px;

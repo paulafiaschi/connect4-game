@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Styles from "../app/Home.module.scss";
 
-export default function GameColumn({ col, i, onClick, pointerColor }) {
+export default function GameColumn({ col, idx, onClick, pointerColor }) {
   return (
     <div className={Styles.column}>
       {col.map((cell, i) => {
@@ -17,7 +17,7 @@ export default function GameColumn({ col, i, onClick, pointerColor }) {
           <>
             <span
               className={`${Styles.gameCell} ${Styles[tokenColor]}`}
-              key={`cell-${i}`}
+              key={`cell-${idx}-${i}`}
               onClick={onClick}
               value={cell}></span>
           </>
@@ -26,7 +26,7 @@ export default function GameColumn({ col, i, onClick, pointerColor }) {
 
       <div
         className={`${Styles.pointer} ${Styles[pointerColor]}`}
-        key={`pointer-${i}`}>
+        key={`pointer-${idx}`}>
         <span>&nbsp;</span>
       </div>
     </div>
