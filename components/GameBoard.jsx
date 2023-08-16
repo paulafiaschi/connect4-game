@@ -3,6 +3,7 @@ import Styles from "../app/Home.module.scss";
 import GameColumn from "./GameColumn";
 import Rules from "./Rules";
 import WinnerOverlay from "./WinnerOverlay";
+import StartScreen from "./StartScreen";
 
 export default function GameBoard() {
   let initialBoard = [
@@ -21,6 +22,7 @@ export default function GameBoard() {
   const [pointerColor, setPointerColor] = useState("redPointer");
   const [openRules, setOpenRules] = useState(false);
   const [openWinner, setOpenWinner] = useState(false);
+  const [startScreen, setStartScreen] = useState(true);
 
   const checkWin = (currentPlayer) => {
     // Check Vertical
@@ -107,8 +109,11 @@ export default function GameBoard() {
     <>
       <main className={Styles.main}>
         <div className={Styles.buttons}>
-          <div onClick={() => setOpenRules(true)}>Game Rules</div>
+          <div className={Styles.button} onClick={() => setOpenRules(true)}>
+            Game Rules
+          </div>
           <div
+            className={Styles.button}
             onClick={() => {
               setGameState(initialBoard);
               setCurrentPlayer(1);
@@ -137,6 +142,7 @@ export default function GameBoard() {
         {openWinner && (
           <WinnerOverlay setOpenWinner={setOpenWinner} winner={winner} />
         )}
+        {startScreen && <StartScreen setStartScreen={setStartScreen} />}
       </main>
     </>
   );

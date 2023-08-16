@@ -14,7 +14,9 @@ export default function WinnerOverlay({ winner, setOpenWinner }) {
           The winner is
           <span>PLAYER {winner}</span>
         </h2>
-        <div className={Styles.newGame} onClick={() => setOpenWinner(false)}>
+        <div
+          className={`${Styles.button} ${Styles.newGame}`}
+          onClick={() => setOpenWinner(false)}>
           Restart
         </div>
       </div>

@@ -4,9 +4,9 @@ $yellow-color: #e8ce0a;
 .main {
   background-color: #f4d7b9;
   background: linear-gradient(180deg, #fdeddb 70%, #d9bb9b 60%);
-  padding: 100px 50px;
+  padding: 6.25rem 2.75rem;
   display: flex;
-  gap: 50px;
+  gap: 3.125rem;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -24,14 +24,32 @@ $yellow-color: #e8ce0a;
   background-color: rgba(0, 0, 0, 0.571);
 }
 
+.rulesOverlay {
+  h1 {
+    text-align: center;
+  }
+
+  .button {
+    margin-top: 2.5rem;
+  }
+
+  h3 {
+    margin-bottom: 0px;
+    margin-top: 1rem;
+  }
+  p,
+  ol {
+    margin-top: 0.25rem;
+  }
+}
+
 .rules,
 .winnerSign {
   background-color: white;
   border: solid 2px black;
   box-shadow: black 0px 5px 0px 1px;
-  padding: 20px;
+  padding: 1.25rem;
   width: 30vw;
-  height: 60vh;
   border-radius: 20px;
   display: block;
   margin: auto;
@@ -39,8 +57,8 @@ $yellow-color: #e8ce0a;
 
   .closeButton {
     position: absolute;
-    right: 20px;
-    font-size: 20px;
+    right: 1.25rem;
+    font-size: 1.25rem;
     cursor: pointer;
   }
 }
@@ -68,28 +86,22 @@ $yellow-color: #e8ce0a;
   }
   .newGame {
     position: relative;
-    background-color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: solid 2px black;
-    box-shadow: black 0px 3px 0px 1px;
-    cursor: pointer;
-    color: black;
-    min-width: 100px;
   }
 }
-
-.buttons div {
+.button {
   background-color: white;
-  padding: 10px 20px;
+  padding: 0.75rem 1.25rem;
   border-radius: 10px;
   border: solid 2px black;
   box-shadow: black 0px 3px 0px 1px;
-  margin-bottom: 10px;
-  align-self: flex-start;
   cursor: pointer;
-  min-width: 100px;
+  color: black;
+  min-width: 6.25rem;
+  margin: auto;
+  margin-bottom: 0.75rem;
   text-align: center;
+  width: fit-content;
+  display: block;
 
   &:hover {
     background-color: rgb(224, 218, 218);
@@ -100,15 +112,15 @@ $yellow-color: #e8ce0a;
   background-color: #1990ff;
   display: flex;
   width: fit-content;
-  padding-bottom: 40px;
+  padding-bottom: 2.5rem;
   border-radius: 20px;
   border: solid 2px black;
   box-shadow: black 0px 5px 0px 1px;
 }
 .turn {
-  min-width: 200px;
-  height: 100px;
-  margin-top: -20px;
+  min-width: 13rem;
+  height: 6.25rem;
+  margin-top: -1.25rem;
   border: solid 2px black;
   box-shadow: black 0px 5px 0px 1px;
   border-radius: 10px;
@@ -126,18 +138,18 @@ $yellow-color: #e8ce0a;
 }
 
 .gameCell {
-  height: 60px;
-  width: 60px;
+  height: 3.75rem;
+  width: 3.75rem;
   cursor: pointer;
   display: flex;
   background-color: #f4d7b9;
   border-radius: 100px;
-  margin: 10px;
+  margin: 0.75rem;
   border: solid 2px black;
   box-shadow: black -1px 7px 0px 1px inset;
 }
 .column {
-  margin: 10px;
+  margin: 0.75rem;
   display: flex;
   flex-direction: column-reverse;
   position: relative;
@@ -154,20 +166,20 @@ $yellow-color: #e8ce0a;
   display: block;
   background-color: none;
   position: absolute;
-  top: -80px;
-  margin: 10px;
+  top: -5rem;
+  margin: 0.75rem;
   width: 0;
   height: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-top: 40px solid transparent;
+  border-left: 1.875rem solid transparent;
+  border-right: 1.875rem solid transparent;
+  border-top: 2.5rem solid transparent;
   box-shadow: black -1px 3px 0px 1px inset;
 }
 
 .redCircle,
 .yellowCircle {
-  height: 60px;
-  width: 60px;
+  height: 3.75rem;
+  width: 3.75rem;
   border-radius: 100px;
   transition: background-color 0.5s;
   transition: box-shadow 0.1s;

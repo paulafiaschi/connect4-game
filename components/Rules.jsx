@@ -7,7 +7,8 @@ export default function Rules({ setOpenRules }) {
         <div className={Styles.closeButton} onClick={() => setOpenRules(false)}>
           x
         </div>
-        <h2>Rules</h2>
+        <h1>Rules</h1>
+
         <h3>Objective</h3>
         <p>
           Be the first player to connect 4 of the same coloured tokens in a row
