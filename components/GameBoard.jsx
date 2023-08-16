@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Styles from "../app/Home.module.scss";
 import GameColumn from "./GameColumn";
+import Rules from "./Rules";
+import WinnerOverlay from "./WinnerOverlay";
 
 export default function GameBoard() {
   let initialBoard = [
@@ -94,6 +96,7 @@ export default function GameBoard() {
       setWinner(currentPlayer);
     }
   };
+
   //   if (winner) {
   //     return <div>Winner is {winner}</div>;
   //   }
@@ -102,7 +105,14 @@ export default function GameBoard() {
       <main className={Styles.main}>
         <div className={Styles.buttons}>
           <div onClick={() => setOpenRules(true)}>Game Rules</div>
-          <div>Restart</div>
+          <div
+            onClick={() => {
+              setGameState(initialBoard);
+              setCurrentPlayer(1);
+              setPointerColor("redPointer");
+            }}>
+            Restart
+          </div>
         </div>
         <div className={Styles.board}>
           {gameState.map((col, i) => {
@@ -120,29 +130,20 @@ export default function GameBoard() {
         <div className={`${Styles.turn} ${Styles[pointerColor]}`}>
           Player {currentPlayer}'s playing
         </div>
-        {openRules === true && (
-          <div className={Styles.rulesOverlay}>
-            <div className={Styles.rules}>
-              <div onClick={() => setOpenRules(false)}>x</div>
-              <h2>Rules</h2>
-              <h3>Objective</h3>
-              <p>
-                Be the first player to connect 4 of the same coloured tokens in
-                a row (either vertically, horizontally or diagonally)
-              </p>
-              <h3>How to play</h3>
-              <ol>
-                <li>Red goes first.</li>
-                <li>
-                  Players must alternate turns, and only one token can be
-                  dropped in each turn.
-                </li>
-                <li>
-                  The game ends when there is 4-in-a-row or the board is full.
-                </li>
-              </ol>
-            </div>
-          </div>
+        {openRules === true && <Rules setOpenRules={setOpenRules} />}
+        <WinnerOverlay
+          winner={winner}
+          setWinner={setWinner}
+          setGameState={setGameState}
+          initialBoard={initialBoard}
+        />
+        {winner && (
+          <WinnerOverlay
+            winner={winner}
+            setWinner={setWinner}
+            setGameState={setGameState}
+            initialBoard={initialBoard}
+          />
         )}
       </main>
     </>
