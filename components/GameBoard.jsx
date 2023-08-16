@@ -17,6 +17,7 @@ export default function GameBoard() {
   const [winner, setWinner] = useState(null);
   const [currentPlayer, setCurrentPlayer] = useState(1);
   const [pointerColor, setPointerColor] = useState("redPointer");
+  const [openRules, setOpenRules] = useState(false);
 
   const checkWin = (currentPlayer) => {
     // Check Vertical
@@ -97,23 +98,53 @@ export default function GameBoard() {
   //     return <div>Winner is {winner}</div>;
   //   }
   return (
-    <main className={Styles.main}>
-      <div className={Styles.board}>
-        {gameState.map((col, i) => {
-          return (
-            <GameColumn
-              col={col}
-              key={`${i}-column`}
-              onClick={() => addToken(i)}
-              pointerColor={pointerColor}
-              idx={i}
-            />
-          );
-        })}
-      </div>
-      <div className={`${Styles.turn} ${Styles[pointerColor]}`}>
-        Player {currentPlayer}'s playing
-      </div>
-    </main>
+    <>
+      <main className={Styles.main}>
+        <div className={Styles.buttons}>
+          <div onClick={() => setOpenRules(true)}>Game Rules</div>
+          <div>Restart</div>
+        </div>
+        <div className={Styles.board}>
+          {gameState.map((col, i) => {
+            return (
+              <GameColumn
+                col={col}
+                key={`${i}-column`}
+                onClick={() => addToken(i)}
+                pointerColor={pointerColor}
+                idx={i}
+              />
+            );
+          })}
+        </div>
+        <div className={`${Styles.turn} ${Styles[pointerColor]}`}>
+          Player {currentPlayer}'s playing
+        </div>
+        {openRules === true && (
+          <div className={Styles.rulesOverlay}>
+            <div className={Styles.rules}>
+              <div onClick={() => setOpenRules(false)}>x</div>
+              <h2>Rules</h2>
+              <h3>Objective</h3>
+              <p>
+                Be the first player to connect 4 of the same coloured tokens in
+                a row (either vertically, horizontally or diagonally)
+              </p>
+              <h3>How to play</h3>
+              <ol>
+                <li>Red goes first.</li>
+                <li>
+                  Players must alternate turns, and only one token can be
+                  dropped in each turn.
+                </li>
+                <li>
+                  The game ends when there is 4-in-a-row or the board is full.
+                </li>
+              </ol>
+            </div>
+          </div>
+        )}
+      </main>
+    </>
   );
 }
